@@ -1,16 +1,16 @@
 
 import { useState } from 'react';
 import './App.css';
-// import About from './components/About';
+ import About from './components/About';
 import Navbar from './components/Navbar';
 import TestForm from './components/TestForm';
 import Alert from './components/Alert';
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
-//   Link
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
  const[mode,setMode] =useState("dark")//whether dark mode is enable or not
@@ -33,36 +33,35 @@ setTimeout(()=>{
 setMode("dark")
 document.body.style.backgroundColor="#0b1d53"
 showAlert("dark mode has been enabled","success")
-document.title="TextUtils DarkMode"
+//  document.title="TextUtils DarkMode"
 
 
  }else{
   setMode("light")
   document.body.style.backgroundColor="white"
   showAlert("light mode has been enabled","success")
-  document.title="TextUtils LightMode"
+  //  document.title="TextUtils LightMode"
  }}
   return (
      <>
-  {/* <Navbar/> */}  
-{/* <Router> */}
-<h1>This web page is created by Nandani(click on the enable button to change the mode)</h1>
+  {/* <Navbar/>   */}
+<Router>
 <Navbar title="TextUtils" aboutText="AboutTextUtils" mode={mode} toggleMode={toggleMode}/>
 <Alert alert={alert}/>
 <div className='container my-3'>
 
-{/* <Routes> */}
-          {/* <Route path="/about" element={<About/>}> */}
+<Routes> 
+          <Route path="/about" element={<About mode={mode}/>}>
             {/* <About/> */}
-          {/* </Route> */}
+          </Route>
           
-          {/* <Route path="/" element={<TestForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode}/>}> */}
-          
-          {/* </Route> */}
-        {/* </Routes> */}
-        <TestForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode}/>
+          <Route path="/" element={<TestForm showAlert={showAlert} heading="Try TextUtils-Word Counter, Character Counter, Remove extra spaces" mode={mode}/>}>
+          {/* {<TestForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode}/> } */}
+          </Route>
+        </Routes>
+        
 </div>
-{/* </Router> */}
+</Router> 
     </>
   );
 }
