@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 
 function App() {
- const[mode,setMode] =useState("dark")//whether dark mode is enable or not
+ const[mode,setMode] =useState("light")//whether dark mode is enable or not
  const[alert, setAlert]=useState(null);
 
  const showAlert=(message,type)=>{
@@ -25,10 +25,23 @@ function App() {
 setTimeout(()=>{
   setAlert(null)
 },1500)
-
+}
+const removeBodyClasses=()=>{
+  document.body.classList.remove("bg-light")
+  document.body.classList.remove("bg-dark")
+  document.body.classList.remove("bg-success")
+  document.body.classList.remove("bg-primary")
+  document.body.classList.remove("bg-warning")
+  document.body.classList.remove("bg-danger")
+}
+ const toggleMode=(cls)=>{
+  removeBodyClasses()
+  console.log("printing cls "+cls)
+//   if((typeof cls)==="object"){
+// cls="primary"
+//   }
   
- }
- const toggleMode=()=>{
+  document.body.classList.add("bg-"+cls)
   if(mode==="light"){
 setMode("dark")
 document.body.style.backgroundColor="#0b1d53"

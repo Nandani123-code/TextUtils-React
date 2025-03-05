@@ -13,7 +13,7 @@ import PropTypes from 'prop-types'
 
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav mr-auto">
-      <li className="nav-item active">
+      <li className="nav-item ">
         <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
       </li>
       <li className="nav-item">
@@ -22,11 +22,19 @@ import PropTypes from 'prop-types'
       
     </ul>
  
+<div className="d-flex">
+  <div className='bg-primary rounded mx-2' style={{height:"30px",width:"30px",cursor:"pointer"}} onClick={()=>props.toggleMode("primary")} ></div>
+  <div className='bg-danger rounded mx-2' style={{height:"30px",width:"30px",cursor:"pointer"}} onClick={()=>props.toggleMode("danger")} ></div>
+  <div className='bg-success rounded mx-2' style={{height:"30px",width:"30px",cursor:"pointer"}} onClick={()=>props.toggleMode("success")} ></div>
+  <div className='bg-warning rounded mx-2' style={{height:"30px",width:"30px",cursor:"pointer"}} onClick={()=>props.toggleMode("warning")} ></div>
+  <div className='bg-light rounded mx-2' style={{height:"30px",width:"30px",cursor:"pointer"}} onClick={()=>props.toggleMode("dark")} ></div>
+  <div className='bg-dark rounded mx-2' style={{height:"30px",width:"30px",cursor:"pointer"}} onClick={()=>props.toggleMode("light")} ></div>
 
-    <div className={`form-check form-switch text-${props.mode==="light"?"dark":"light"}`}>
-  <input className="form-check-input" type="checkbox" onClick={props.toggleMode} role="switch" id="flexSwitchCheckDefault"/>
-  <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable DarkMode</label>
 </div>
+    {/* <div className={`form-check form-switch text-${props.mode==="light"?"dark":"light"}`}>
+  <input className="form-check-input" type="checkbox" onClick={props.toggleMode} role="switch" id="flexSwitchCheckDefault"/>
+  <label className="form-check-label" htmlFor="flexSwitchCheckDefault" >Toggle Mode</label>
+</div> */}
     
   </div>
 </nav>
